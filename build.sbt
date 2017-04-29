@@ -14,7 +14,9 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "com.typesafe"      % "config"                          % "1.3.0",
-  "ch.qos.logback"    % "logback-classic"                 % "1.1.3"
+  "ch.qos.logback"    % "logback-classic"                 % "1.1.3",
+  "com.typesafe.akka" %% "akka-stream"                    % "2.5.0",
+  "com.typesafe.akka" %% "akka-stream-testkit"            % "2.5.0"
 )
 
 val myAssemblySettings = Seq(
