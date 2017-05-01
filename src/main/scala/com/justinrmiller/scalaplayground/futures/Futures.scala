@@ -9,7 +9,7 @@ import scala.concurrent.duration._
   * See blog post here: http://viktorklang.com/blog/Futures-in-Scala-2.12-part-1.html
   */
 object Futures {
-  def flatten() = {
+  def flatten() {
     println("Constructing a future of future of a string Bob")
     val future = Future(Future("Bob"))
 
@@ -20,7 +20,7 @@ object Futures {
     println(s"Value of flattened future: $flattenedFuture")
   }
 
-  def combinedFuture() = {
+  def combinedFuture() {
     val future1 = Future("Bob")
     val future2 = Future(24)
 
@@ -29,7 +29,7 @@ object Futures {
     println(sentence)
   }
 
-  def unitFuture() = {
+  def unitFuture() {
     def store(s: String) = Future.unit // <-- business logic here
 
     def storeInDB(s: String): Future[Unit] = s match {

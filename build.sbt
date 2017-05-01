@@ -4,8 +4,8 @@ version := "0.1"
 
 resolvers ++= Seq(
   Resolver.typesafeRepo("releases"),
-  "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/",
-  "Sonatype OSS Releases" at "http://oss.sonatype.org/content/repositories/releases",
+  Resolver.sonatypeRepo("releases"),
+  Resolver.sonatypeRepo("snapshots"),
   "Typesafe repository releases" at "http://repo.typesafe.com/typesafe/releases/",
   "Maven Central" at "https://repo1.maven.org/maven2/",
   "Twitter Repo" at "http://maven.twttr.com",
@@ -15,8 +15,11 @@ resolvers ++= Seq(
 libraryDependencies ++= Seq(
   "com.typesafe"      % "config"                          % "1.3.0",
   "ch.qos.logback"    % "logback-classic"                 % "1.1.3",
+
   "com.typesafe.akka" %% "akka-stream"                    % "2.5.0",
-  "com.typesafe.akka" %% "akka-stream-testkit"            % "2.5.0"
+  "com.typesafe.akka" %% "akka-stream-testkit"            % "2.5.0",
+
+  "com.chuusai"       %% "shapeless"                      % "2.3.2"
 )
 
 val myAssemblySettings = Seq(
