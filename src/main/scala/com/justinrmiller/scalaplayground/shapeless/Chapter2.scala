@@ -1,5 +1,7 @@
 package com.justinrmiller.scalaplayground.shapeless
 
+import shapeless.{::, HNil}
+
 /**
   * Created by justin on 4/30/17.
   *
