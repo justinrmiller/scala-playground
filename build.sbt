@@ -23,12 +23,10 @@ libraryDependencies ++= Seq(
 )
 
 val myAssemblySettings = Seq(
-  assemblyMergeStrategy in assembly <<= (mergeStrategy in assembly) { (old) =>
-    {
+    assemblyMergeStrategy in assembly := {
       case n if n.startsWith("META-INF/MANIFEST.MF") => MergeStrategy.discard
       case _ => MergeStrategy.first
     }
-  }
 )
 
 lazy val commonSettings = Seq(
@@ -47,7 +45,7 @@ lazy val app = (project in file(".")).
 
 artifact in (Compile, assembly) := {
   val art = (artifact in (Compile, assembly)).value
-  art.copy(`classifier` = Some("assembly"))
+  art.withClassifier(Some("assembly"))
 }
 
 addArtifact(artifact in (Compile, assembly), assembly)
